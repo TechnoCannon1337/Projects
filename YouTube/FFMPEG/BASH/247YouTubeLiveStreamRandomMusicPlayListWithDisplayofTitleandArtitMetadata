@@ -12,7 +12,7 @@ done
 #This Bash Script uses an "Until Loop" to restart the script on failure.
 #This script uses a "While Loop" to restart the "For Loop" at the end of its' operation.
 #This scripts uses a "For Loop" to randomly select the name of each mp3 file in the referenced Directory
-#This script assigns two variables to an FFProbe command that grabs the metadata for the Song Artis & Song Title when available for each file shuffled by the "For Loop".
+#This script assigns two variables to an FFProbe command that grabs the metadata for the Song Artist & Song Title when available for each file shuffled by the "For Loop".
 #This script uses an FFMPEG command to play every mp3 shuffled by the "For Loop" with a video that loops for the duration of the song.
 #The FFMPEG command takes the filename refrenced from the "Name Variable", stripped of directory name, and displays it on the video with the MetaData Artist Name, if any, collected by the FFProbe command.
 #
