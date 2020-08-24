@@ -8,3 +8,7 @@ Techno Cannon, MPA
 
 HTTPS://TECHNOCANNON.COM
 
+Available for Hire @ 
+
+https://technocannon.com/freelance
+
