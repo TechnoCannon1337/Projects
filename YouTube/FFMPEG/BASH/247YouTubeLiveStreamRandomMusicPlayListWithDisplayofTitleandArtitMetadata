@@ -18,7 +18,7 @@ done
 #The FFMPEG command takes the filename refrenced from the "Name Variable", stripped of directory name, and displays it on the video with the MetaData Artist Name, if any, collected by the FFProbe command.
 #
 #Challenges
-#Not All Songs have Song Title & Artis Metadata
+#Not All Songs have Song Title & Artist Metadata
 #Method used to strip directory from Displayed song name would not permit the file extension to be omitted and underscores to be replaced with whitespace. Need another solution.
 #Directories listed in full due to environment complications withen running this scripts on crontabs on reboot as a service. May use Systemd for future implementations.
 #"For Loop" designed to restart FFMPEG command once finished with new song and this sometimes causes a noticible skip during livestream for at least 1 second...
