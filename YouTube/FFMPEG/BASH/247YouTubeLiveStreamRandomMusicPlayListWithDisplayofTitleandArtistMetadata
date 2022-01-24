@@ -19,7 +19,7 @@ done
 #
 #Challenges
 #Not All Songs have Song Title & Artist Metadata
-#Directories listed in full due to environment complications withen running this scripts on crontabs on reboot as a service. May use Systemd for future implementations.
+#Directories listed in full due to environment complications with running this scripts on crontabs on reboot as a service. May use Systemd for future implementations.
 #"For Loop" designed to restart FFMPEG command once finished with new song and this sometimes causes a noticible skip during livestream for at least 1 second...
 #...Looking for a way to use FFMPEG Concatenate on a randomly created input list songs instead, which I've found works better with no noticiple interuptions, and display the Song Information simultaneously.
 #...to be continued.
