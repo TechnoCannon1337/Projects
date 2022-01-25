@@ -23,6 +23,8 @@ done
 #"For Loop" designed to restart FFMPEG command once finished with new song and this sometimes causes a noticible skip during livestream for at least 1 second...
 #...Looking for a way to use FFMPEG Concatenate on a randomly created input list songs instead, which I've found works better with no noticiple interuptions, and display the Song Information simultaneously.
 #...to be continued.
+#
 #Techno Cannon, MPA
-#HTTPS://TECHNOCANNON.COM
+# HTTPS://TECHNOCANNON.COM
+# HTTPS://TECHNOCANNON.COM/FREELANCE
 #
