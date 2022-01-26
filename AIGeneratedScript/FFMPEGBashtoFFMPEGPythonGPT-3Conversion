@@ -1,0 +1,58 @@
+#####Translate this script from Bash into Python
+###Bash
+#!/bin/bash
+until
+while true; do
+  for name in $(shuf -e /EnterFullPathofSourceDirectoryHere/*.mp3); do
+  SongArtist="$(ffprobe -v error -show_entries format=artist -of default=noprint_wrappers=1:nokey=1 $name)"
+  SongTitle="$(ffprobe -v error -show_entries format_tags=filename -of default=noprint_wrappers=1:nokey=1 $name)"
+  ffmpeg -thread_queue_size 1024 -re -nostdin -err_detect ignore_err -i $name -thread_queue_size 1024 -re -stream_loop -1 -nostdin -err_detect ignore_err -i /EnterFullPathofSourceDirectoryHere/EnterNameofVideoFileHere.mp4 -c:v libx264 -pix_fmt yuv420p -preset ultrafast -g 60 -b:v 2500k -bufsize 512k -shortest -acodec aac -ar 44100 -threads 8 -q:v 5 -q:a 0 -b:a 196k -r 24 -s 1280x720 -filter_complex drawtext="fontfile=monofonto.ttf: fontsize=36: box=1: boxcolor=black@0.75: boxborderw=5: fontcolor=yellow: x=w-tw-10:y=h-th-10: text='This Song is called $(echo "$(echo ${SongTitle#/EnterFullPathofSourceDirectoryHere/} | tr -s '_' | tr '_' ' ')" | sed -e 's/\(.mp3\)*$//g') by Song Artist $SongArtist'" -f flv rtmp://a.rtmp.youtube.com/live2/EnterSecretKeyHere
+done
+done; do
+  sleep 1
+done
+###Python
+import os
+import time
+
+def run_command(command):
+
+try:
+
+os.system(command)
+
+except:
+
+pass
+
+def main():
+
+source_directory = "."
+
+song_directory = source_directory + "/"
+
+video_directory = source_directory + "/EnterNameofVideoFileHere"
+
+ffmpeg = "ffmpeg"
+
+song_artist = "Unknown Artist"
+
+song_title = "Unknown Title"
+
+video_file = "EnterNameofVideoFileHere.mp4"
+
+rtmp_server = "rtmp://a.rtmp.youtube.com/live2/"
+
+rtmp_key = "EnterSecretKeyHere"
+
+while True:
+
+run_command("ffmpeg -thread_queue_size 1024 -re -nostdin -err_detect ignore_err -i $video_file -thread_queue_size 1024 -re -stream_loop -1 -nostdin -err_detect ignore_err -i $song_file -c:v libx264 -pix_fmt yuv420p -preset ultrafast -g 60 -b:v 2500k -bufsize 512k -shortest -acodec aac -ar 44100 -threads 8 -q:v 5 -q:a 0 -b:a 196k -r 24 -s 1280x720 -filter_complex drawtext="fontfile=monofonto.ttf: fontsize=36: box=1: boxcolor=black@0.75: boxborderw=5: fontcolor=yellow: x=w-tw-10:y=h-th-10: text='This Song is called $(echo "$(echo ${song_title#/EnterFullPathofSourceDirectoryHere/} | tr -s '_' | tr '_' ' ')" | sed -e 's/\(.mp3\)*$//g') by Song Artist $song_artist'" -f flv rtmp://rtmp_server/$rtmp_key
+time.sleep(1)
+except KeyboardInterrupt:
+
+print("Error running command")
+
+time.sleep(1)
+
+main()
