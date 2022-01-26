@@ -1,5 +1,3 @@
-#####Translate this script from Bash into Python
-###Bash
 #!/bin/bash
 until
 while true; do
@@ -11,6 +9,8 @@ done
 done; do
   sleep 1
 done
+
+
 ###Python
 import os
 import time
