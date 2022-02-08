@@ -157,4 +157,5 @@ class Optimizer(nn.Module):
         m.conv2.weight.data.clamp_(-0.05, 0.05)
         m.conv2.bias.clamp_(-0.05, 0.05)
         m.conv3.weight.data.clamp_(-0.05, 0.05)
-        m.conv3.bias.clamp_(-0.05, 0
+        m.conv3.bias.clamp_(-0.05, 0.05)
+        return F.cross_entropy(m.conv1, m.conv2)
