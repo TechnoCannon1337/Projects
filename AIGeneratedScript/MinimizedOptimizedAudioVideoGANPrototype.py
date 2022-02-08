@@ -112,14 +112,17 @@ def main():
     #    tf.keras.layers.Dense(64, activation="relu"),
     #    tf.keras.layers.Dense(1, activation="sigmoid")
     #])
+    generator = tf.keras.Sequential([
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(64, activation="relu"),
+        tf.keras.layers.Dense(64, activation="relu"),
+        tf.keras.layers.Dense(1, activation="sigmoid")
+    ])
 
-    #create audio data generator
-    #generator = tf.keras.Sequential([
-    #    tf.keras.layers.Flatten(),
-    #    tf.keras.layers.Dense(64, activation="relu"),
-    #    tf.keras.layers.Dense(64, activation="relu"),
-    #    tf.keras.layers.Dense(1, activation="sigmoid")
-    #])
-
-    #create audio data generator
-    #generato
+    # generate data
+    # np.random.seed(1)
+    # data = np.random.random(shape=(len(audio), len(audio[0]), wav.shape[1], wav.shape[2]))
+    for n in range(1000):
+        a = np.random.normal(loc=1, size=len(audio))
+        if a > 0.8:
+            return audio, generator
