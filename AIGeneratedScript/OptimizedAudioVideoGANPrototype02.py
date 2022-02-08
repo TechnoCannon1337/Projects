@@ -138,4 +138,19 @@ class Generator(nn.Module):
 # Define the optimizer class
 class Optimizer(nn.Module):
     def __init__(self, params):
-        super(Optim
+        super(Optimizer, self).__init__()
+
+        self.wd = params['wd']
+        self.optimizer = torch.optim.Adam(params['vars'],
+                                          lr=params['lr'], betas=(0.0, 0.9))
+
+    def update(self, m):
+        self.optimizer.zero_grad()
+        loss = self.fn(m)
+        loss.backward()
+        self.optimizer.step()
+
+    def fn(self, m):
+        m.apply(self.wd)
+        m.conv1.weight.data.clamp_(-0.05, 0.05)
+        m.conv
