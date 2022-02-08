@@ -153,4 +153,8 @@ class Optimizer(nn.Module):
     def fn(self, m):
         m.apply(self.wd)
         m.conv1.weight.data.clamp_(-0.05, 0.05)
-        m.conv
+        m.conv1.bias.clamp_(-0.05, 0.05)
+        m.conv2.weight.data.clamp_(-0.05, 0.05)
+        m.conv2.bias.clamp_(-0.05, 0.05)
+        m.conv3.weight.data.clamp_(-0.05, 0.05)
+        m.conv3.bias.clamp_(-0.05, 0
