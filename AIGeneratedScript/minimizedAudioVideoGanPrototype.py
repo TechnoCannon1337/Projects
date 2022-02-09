@@ -93,4 +93,13 @@ def build_resnet(network, input_dim, num_classes):
     else:
         train_step = tf.constant(0, dtype=tf.int64)
         display_step = tf.constant(0, dtype=tf.int64)
-        # print the loss
+        # print the loss and the accuracy every 1000 batches
+        tf.summary.scalar('accuracy', accuracy)
+        tf.summary.scalar('learning_rate', lr)
+        tf.summary.scalar('loss', losses)
+        tf.summary.scalar('global_step', train_step)
+        display_step = tf.cond(
+            tf.less(display_step, 5000),
+            lambda: tf.summary.scalar('display_step', display_step + 1),
+            lambda: tf.summary.scalar('display_step', display_step))
+    return logits, losses, train_step, display_step, predictions, accuracy, train_step
