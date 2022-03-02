@@ -14,3 +14,7 @@ Available for Hire @
 
 https://technocannon.com/freelance
 
+Funding Link(s):
+
+https://TechnoCannon.com/cashapp
+
