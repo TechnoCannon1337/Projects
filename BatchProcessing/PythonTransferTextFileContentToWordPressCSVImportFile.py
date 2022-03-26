@@ -18,12 +18,12 @@ for TESTFile in os.listdir(TESTSourceFiles):
             PostAuthor='1'
             PostDate=datetime.now().replace(microsecond=0).isoformat() + 'Z'
             PostType='post'
-            PostStatus='published'
+            PostStatus='publish'
             PostTitle=str(TESTFile[0:-4].replace('', '?'))
             PostSlug=str(PostTitle.replace(' ', '-'))
             PostContent=GenContent
-            PostCategory='somecategory'
-            PostTags='some, tags'
+            PostCategory=['501']
+            PostTags=['some', 'tags']
             PostCustom=None
             def StripLine():
                 NewPost=' '.join(PostContent)
