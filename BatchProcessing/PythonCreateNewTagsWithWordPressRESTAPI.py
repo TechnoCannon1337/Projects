@@ -7,7 +7,7 @@ import base64
 from datetime import datetime
 
 tagsURL = 'https://domainName.com/wp-json/wp/v2/tags'
-user = 'username
+user = 'username'
 password = '0123 4567 8901 2345 6789 0123'
 credentials = user + ':' + password
 token = base64.b64encode(credentials.encode())
