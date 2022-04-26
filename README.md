@@ -14,7 +14,14 @@ Available for Hire @
 
 https://technocannon.com/freelance
 
-Funding Link(s):
+Cyber Swag:
+https://TechnoCannon.com/swag
 
+YouTube Channel:
+https://technocannon.com/youtube
+
+Cyber Music:
+https://technocannon.com/music
+
+Financial Support Link:
 https://TechnoCannon.com/cashapp
-
