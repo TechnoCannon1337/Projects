@@ -1,10 +1,10 @@
-# TECHNO CANNON, SOFTWARE DEVELOPMENT PROJECTS
+# TECHNO CANNON, SOFTWARE DEVELOPMENT
 
 <img src="https://github.com/TechnoCannon1337/Projects/blob/master/imagefiles/TechnoCannonBusinessCard.png">
 
 # Hello World!
 
-## This is a repository for projects I've worked on and projects I'm working on presently.
+## This is a public repository for projects I've worked on and for projects I'm working on presently.
 
 ## Techno Cannon, MPA
 
