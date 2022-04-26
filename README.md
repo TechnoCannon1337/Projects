@@ -9,6 +9,7 @@
 ## Techno Cannon, MPA
 
 
+# COMMERCIAL LINKS:
 Official Website:
 HTTPS://TECHNOCANNON.COM
 
@@ -24,6 +25,7 @@ https://technocannon.com/learntoprogram
 Financial Support Link:
 https://TechnoCannon.com/cashapp
 
+# SOCIAL MEDIA LINKS
 YouTube Channel:
 https://technocannon.com/youtube
 
