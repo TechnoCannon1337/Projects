@@ -1,6 +1,6 @@
 # TECHNO CANNON, SOFTWARE DEVELOPMENT
 
-<a target="_blank" href="HTTPS://TECHNOCANNON.COM"><img src="https://github.com/TechnoCannon1337/Projects/blob/master/imagefiles/TechnoCannonBusinessCard.png"></a>
+<a href="HTTPS://TECHNOCANNON.COM" target="_blank"><img src="https://github.com/TechnoCannon1337/Projects/blob/master/imagefiles/TechnoCannonBusinessCard.png"></a>
 
 # Hello World!
 
