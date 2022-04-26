@@ -6,6 +6,7 @@ This is a repository for projects I've worked on and projects I'm working on pre
 Cheers!
 
 Techno Cannon, MPA
+<img src="https://github.com/TechnoCannon1337/Projects/blob/master/imagefiles/TechnoCannonBusinessCard.png" width="500">
 
 Official Website:
 HTTPS://TECHNOCANNON.COM
