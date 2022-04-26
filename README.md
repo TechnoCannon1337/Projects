@@ -7,15 +7,20 @@ Cheers!
 
 Techno Cannon, MPA
 
-
+Official Website:
 HTTPS://TECHNOCANNON.COM
 
-Available for Hire @ 
-
+Work for Hire:
 https://technocannon.com/freelance
 
 Cyber Swag:
 https://TechnoCannon.com/swag
+
+Amazon Affiliate:
+https://technocannon.com/learntoprogram
+
+Financial Support Link:
+https://TechnoCannon.com/cashapp
 
 YouTube Channel:
 https://technocannon.com/youtube
@@ -23,8 +28,12 @@ https://technocannon.com/youtube
 Cyber Music:
 https://technocannon.com/music
 
-Financial Support Link:
-https://TechnoCannon.com/cashapp
-
 GitHub Link:
- http://TechnoCannon.com/github
+http://TechnoCannon.com/github
+
+Twitter Link:
+https://technocannon.com/twitter
+
+Discord Server:
+https://technocannon.com/discord
+
