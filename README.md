@@ -2,7 +2,7 @@
 
 <img src="https://github.com/TechnoCannon1337/Projects/blob/master/imagefiles/TechnoCannonBusinessCard.png">
 
-## Hello World!
+# Hello World!
 
 ## This is a repository for projects I've worked on and projects I'm working on presently.
 
@@ -40,4 +40,3 @@ https://technocannon.com/twitter
 
 Discord Server:
 https://technocannon.com/discord
-
