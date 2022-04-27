@@ -153,7 +153,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 </div>
         '''
         with open(menuitemSelection+'.html', 'w') as finalExport:
-            finalExport.write(str(mainCourseMeal.replace('Save Table', '')))
+            finalExport.write(str(mainCourseMeal.replace('Save Table', '').replace(notAvailable, '')))
 
 
 
@@ -202,7 +202,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         cajunDinner = {
          'title'    : AmericanGumboMenuTitle,
          'status'   : 'publish',
-         'content'  : mainCourseMeal.replace('Save Table', ''),
+         'content'  : mainCourseMeal.replace('Save Table', '').replace(notAvailable, ''),
          'categories': newFlavorArray,
          'date_gmt' : datetime.now().replace(microsecond=0).isoformat() + 'Z',
          'format' : 'standard',
