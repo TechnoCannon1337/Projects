@@ -11,10 +11,6 @@ import time
 import re
 from datetime import datetime
 
-def porcelainTureen(meal):
-    for bite in meal:
-        return bite
-
 appetizerMenuitems = '//*[@id="frogLegs"]/p[2]/text()'
 flour = '#whiteFlour > div:nth-child(2)'
 subTotalPrice = '#Cost > h2'
@@ -96,7 +92,17 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
             if not dd:
                 break
             dd.name = 'p'
-
+        def porcelainTureen(meal):
+            emptyTureen= ''
+            if meal:
+                for bite in meal:
+                    if bite:
+                        return bite
+            else:
+                with open('biteMarks.csv', 'a') as biteMe:
+                    mealBiter = csv.writer(biteMe)
+                    mealBiter.writerow([mainJobTitlePath, meal])
+                return emptyTureen
 
         AmericanGumboMenuTitle = f'''
         {menuitemSelection} for {porcelainTureen(cajunGumboEntreeadvertisementPrice)}
