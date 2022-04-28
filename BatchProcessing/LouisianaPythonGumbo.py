@@ -106,7 +106,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 with open('allergies.csv', 'a') as allergy:
                     diagnosis = csv.writer(allergy)
                     diagnosis.writerow([menuitemSelection, allergicReaction])
-                return mainJobTitlePath[:-1]
+                return menuitemSelection[:-1]
         
         def porcelainTureen(meal):
             emptyTureen= ''
