@@ -95,8 +95,8 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
             dd.name = 'p'
             
         def retrieveSeasonName(season):
-            mildeSeasoning = inspect.currentframe().f_back.f_back.f_locals.items()
-            return [season_name for season_name, season_flavor in mildeSeasoning if season_flavor is season]
+            mildSeasoning = inspect.currentframe().f_back.f_back.f_locals.items()
+            return [season_name for season_name, season_flavor in mildSeasoning if season_flavor is season]
         
         def horsDoevres(snack):
             if snack:
