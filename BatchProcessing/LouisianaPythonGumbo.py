@@ -108,7 +108,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 allergicReaction= retrieveSeasonName(meal)
                 with open('allergies.csv', 'a') as allergy:
                     diagnosis = csv.writer(allergy)
-                    diagnosis.writerow([mainJobTitlePath, allergicReaction])
+                    diagnosis.writerow([menuitemSelection, allergicReaction])
                 return emptyTureen
 
         AmericanGumboMenuTitle = f'''
