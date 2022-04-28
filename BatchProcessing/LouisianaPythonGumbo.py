@@ -9,6 +9,7 @@ import json
 import base64
 import time
 import re
+import inspect
 from datetime import datetime
 
 appetizerMenuitems = '//*[@id="frogLegs"]/p[2]/text()'
@@ -92,6 +93,10 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
             if not dd:
                 break
             dd.name = 'p'
+            
+        def retrieveSeasonName(season):
+            mildeSeasoning = inspect.currentframe().f_back.f_back.f_locals.items()
+            return [season_name for season_name, season_flavor in mildeSeasoning if season_flavor is season]
         
         def porcelainTureen(meal):
             emptyTureen= ''
@@ -100,9 +105,10 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                     if bite:
                         return bite
             else:
-                with open('biteMarks.csv', 'a') as biteMe:
-                    mealBiter = csv.writer(biteMe)
-                    mealBiter.writerow([mainJobTitlePath, meal])
+                allergicReaction= retrieveSeasonName(meal)
+                with open('allergies.csv', 'a') as allergy:
+                    diagnosis = csv.writer(allergy)
+                    diagnosis.writerow([mainJobTitlePath, allergicReaction])
                 return emptyTureen
 
         AmericanGumboMenuTitle = f'''
