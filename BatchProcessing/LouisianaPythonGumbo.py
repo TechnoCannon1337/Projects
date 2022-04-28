@@ -47,8 +47,11 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         cajunGumboEntreeflavor = cajunGumboStew.select(flavoringredient)
         PostFlavors= []
         for flavor in cajunGumboEntreeflavor:
-            for a in cajunGumboStew.find('a', href=True):
-                PostFlavors.append(flavor.a.text)
+            boldFlavor= flavor.a.text
+            PostFlavors.append(boldFlavor)
+            if flavor.a.next_sibling.next_element.next_element.next_element.next_element.text:
+                mildFlavor= flavor.a.next_sibling.next_element.next_element.next_element.next_element.text
+                PostFlavors.append(mildFlavor)
         for a in cajunGumboStew.findAll('a', href=True):
             a.extract()
         for b in cajunGumboStew.findAll('button'):
