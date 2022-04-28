@@ -98,6 +98,16 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
             mildeSeasoning = inspect.currentframe().f_back.f_back.f_locals.items()
             return [season_name for season_name, season_flavor in mildeSeasoning if season_flavor is season]
         
+        def horsDoevres(snack):
+            if snack:
+                return snack
+            else:
+                allergicReaction= retrieveSeasonName(snack)
+                with open('allergies.csv', 'a') as allergy:
+                    diagnosis = csv.writer(allergy)
+                    diagnosis.writerow([menuitemSelection, allergicReaction])
+                return mainJobTitlePath[:-1]
+        
         def porcelainTureen(meal):
             emptyTureen= ''
             if meal:
@@ -118,7 +128,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 <div class="GumboIngredients">
                 {menuitemSelection}
                 <br>
-                {cajunAppetizers}
+                {horsDoevres(cajunAppetizers)}
                 <br>
                 {porcelainTureen(cajunGumboEntreesubTotalPrice)}
                 <br>
