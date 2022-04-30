@@ -13,4 +13,4 @@ def maximumTwitterFun(LookOutWeekend):
         print('Today is '+day+' and was made for fun! \n'+LookOutWeekend)
         time.sleep(86400)
 
-maximumTwitterFun('')
+maximumTwitterFun('https://github.com/TechnoCannon1337/Projects/blob/master/lookOutWeekend.py')
