@@ -1,5 +1,3 @@
-import time
-from datetime import datetime
 def maximumTwitterFun(LookOutWeekend):
     dayofTheWeek = datetime.now().isoweekday()
     while(dayofTheWeek >=5):
