@@ -1,4 +1,3 @@
-#Python
 import time
 from datetime import datetime
 def maximumTwitterFun(LookOutWeekend):
