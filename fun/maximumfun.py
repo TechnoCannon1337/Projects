@@ -7,4 +7,4 @@ def maximumFun(LookOutWeekend):
         print('Today is '+day+' and was made for fun! \n'+LookOutWeekend)
         time.sleep(86400)
 
-maximumFun('https://github.com/TechnoCannon1338/Projects/raw/master/videos/gotFun.mp4')
+maximumFun('https://github.com/TechnoCannon1337/Projects/raw/master/videos/LookOutWeekend2.mp4')
