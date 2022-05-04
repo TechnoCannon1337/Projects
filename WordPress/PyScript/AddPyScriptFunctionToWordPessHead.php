@@ -11,5 +11,5 @@ function pyscript_head()
 
 
 add_action( 'wp_head', 'pyscript_head' );
-
+add_filter('run_wptexturize', '__return_false');
 ?>
