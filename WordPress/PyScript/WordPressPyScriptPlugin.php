@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WordPress PyScripter
  * Plugin URI:        https://raw.githubusercontent.com/TechnoCannon1337/Projects/master/WordPress/PyScript/WordPressPyScriptPlugin.php
- * Description:       The WordPress PyScripter plug in adds a link to the PyScript stylesheet and JavaScript source file to the head of your WordPress website and also deactivates the wptexturize functions to remove syntax errors resulting from modified quotation marks.
+ * Description:       The WordPress PyScripter plugin adds a link to the PyScript stylesheet and JavaScript source file to the head of your WordPress website and also deactivates the wptexturize functions to remove syntax errors resulting from modified quotation marks.
  * Version:           1.0
  * Requires at least: 5.9.3
  * Requires PHP:      5.9.3
