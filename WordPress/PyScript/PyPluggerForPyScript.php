@@ -10,7 +10,6 @@
  * Author URI:        https://technocannon.com/github
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:        https://github.com/TechnoCannon1337/Projects/raw/master/WordPress/PyScript/PyPluggerforPyScript.zip
  */
 wp_register_script('pyPlugger-Script-ID', 'https://pyscript.net/alpha/pyscript.js', array(), null, true);
 
