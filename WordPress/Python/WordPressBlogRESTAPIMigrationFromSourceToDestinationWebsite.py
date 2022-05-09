@@ -34,7 +34,7 @@ for cat in departingPostCats.split(', '):
     departingPostCatRequest = requests.get(catsURLdeparture+'/'+cat, headers=departingHeader)
     departingCatParser = json.loads(str(departingPostCatRequest.text))
     departingPostCatsByName.append(str(departingCatParser['name']))
-with open('wordPostLog.txt', 'w') as wordPostLogger:
+with open('wordPostLog.txt', 'w') as worddepartingPostLogger:
     print(departingPostTitle+'\n\n',departingPostSlug+'\n\n',departingPostExcerpt+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n',departingPostContent+'\n\n', file=worddepartingPostLogger)
 postsURLarrival = 'https://domainname.com/wp-json/wp/v2/posts'
 tagsURLarrival = 'https://domainname.com/wp-json/wp/v2/tags'
