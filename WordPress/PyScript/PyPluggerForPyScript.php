@@ -11,14 +11,15 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
-wp_register_script('pyPlugger-Script-ID', 'https://pyscript.net/alpha/pyscript.js', array(), null, true);
 
-wp_register_style('pPlugger-Style-ID', 'https://pyscript.net/alpha/pyscript.css', array(), null);
+function pyPluggerFix_1_0() {
+  wp_enqueue_script('pyPlugger-Script-ID', 'https://pyscript.net/alpha/pyscript.js', array(), null, true);
 
-wp_enqueue_script('pyPlugger-Script-ID', 'https://pyscript.net/alpha/pyscript.js', array(), null, true);
+  wp_enqueue_style('pPlugger-Style-ID', 'https://pyscript.net/alpha/pyscript.css', array(), null);
 
-wp_enqueue_style('pPlugger-Style-ID', 'https://pyscript.net/alpha/pyscript.css', array(), null);
+}
 
+add_action( 'wp_enqueue_scripts', 'pyPluggerFix_1_0' );
 add_filter('run_wptexturize', '__return_false');
 
 ?>
