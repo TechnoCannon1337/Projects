@@ -21,12 +21,11 @@ totalDepartingPages = departingWordPressresponseCheck.headers['X-WP-TotalPages']
 totalDepartingPagesIntegers = int(totalDepartingPages)
 for departingPageCount in range(1,totalDepartingPagesIntegers+1):
     departingPageLoad = departingPageCount
-    departingPostJSON = {
-     'status'   : 'publish',
-     'per_page' : 1,
-     'page' : departingPageLoad
+    departingPostParams = {
+    'per_page' : 5,
+    'page' : departingPageLoad
     }
-    departingWordPressresponse = requests.get(postsURLdeparture, headers=departingHeader, json=departingPostJSON)
+    departingWordPressresponse = requests.get(postsURLdeparture, headers=departingHeader, params=departingPostParams ,json=departingPostCheck)
     departingPostParser = json.loads(str(departingWordPressresponse.text))
     for count,post in enumerate(departingPostParser):
         departingPostSlug = str(departingPostParser[count]['slug'])
@@ -46,7 +45,7 @@ for departingPageCount in range(1,totalDepartingPagesIntegers+1):
             departingCatParser = json.loads(str(departingPostCatRequest.text))
             departingPostCatsByName.append(str(departingCatParser['name']))
         with open('wordPostLog.txt', 'a') as worddepartingPostLogger:
-            print(pages_count+'\n\n',departingPostTitle+'\n\n',departingPostSlug+'\n\n',departingPostExcerpt+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n', file=worddepartingPostLogger)
+            print(str(departingPageLoad)+' of '+str(totalDepartingPagesIntegers)+'\n\n',departingPostTitle+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n', file=worddepartingPostLogger)        
         postsURLarrival = 'https://domainname.com/wp-json/wp/v2/posts'
         tagsURLarrival = 'https://domainname.com/wp-json/wp/v2/tags'
         catsURLarrival = 'https://domainname.com/wp-json/wp/v2/categories'
