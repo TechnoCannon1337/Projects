@@ -25,6 +25,10 @@ https://technocannon.com/learntoprogram
 Financial Support Link:
 https://TechnoCannon.com/cashapp
 
+# PEER REVIEWED PUBLISHED WORKS:
+Official WordPress Plugin
+https://wordpress.org/plugins/pyplugger-for-pyscript/
+
 # SOCIAL MEDIA LINKS
 YouTube Channel:
 https://technocannon.com/youtube
