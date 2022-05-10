@@ -4,6 +4,7 @@ import csv
 import json
 import base64
 import math
+import re
 from datetime import datetime
 postsURLdeparture = 'https://domainname.com/wp-json/wp/v2/posts'
 tagsURLdeparture = 'https://domainname.com/wp-json/wp/v2/tags'
@@ -48,8 +49,8 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
             departingPostCatRequest = requests.get(catsURLdeparture+'/'+cat, headers=departingHeader)
             departingCatParser = json.loads(str(departingPostCatRequest.text))
             departingPostCatsByName.append(str(departingCatParser['name']))
-        with open('wordPostLog.txt', 'a') as worddepartingPostLogger:
-            print(str(departingPageLoad)+' of '+str(totalDepartingAdjustedPages)+'\n\n',departingPostTitle+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n', file=worddepartingPostLogger)
+        #with open('wordPostLog.txt', 'a') as worddepartingPostLogger:
+        #    print(str(departingPageLoad)+' of '+str(totalDepartingAdjustedPages)+'\n\n',departingPostTitle.strip('\'')+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n',file=worddepartingPostLogger)
         postsURLarrival = 'https://domainname.com/wp-json/wp/v2/posts'
         tagsURLarrival = 'https://domainname.com/wp-json/wp/v2/tags'
         catsURLarrival = 'https://domainname.com/wp-json/wp/v2/categories'
@@ -90,10 +91,10 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
         with open('arrivingTagParserLog.txt', 'a') as wPNewarrivingTagParserResponse:
             wPNewarrivingTagParserResponse.write(str(arrivingNewTagArray))
         arrivingPost = {
-         'title'    : departingPostTitle,
+         'title'    : departingPostTitle.strip('\''),
          'status'   : 'draft',
-         'content'  : departingPostContent,
-         'excerpt'  : departingPostExcerpt,
+         'content'  : str(departingPostContent.strip('\'')).replace('\\n', ''),
+         'excerpt'  : departingPostExcerpt.strip('\''),
          'categories': arrivingNewCatArray,
          'date_gmt' : datetime.now().replace(microsecond=0).isoformat() + 'Z',
          'format' : 'standard',
