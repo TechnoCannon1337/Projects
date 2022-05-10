@@ -4,7 +4,6 @@ import csv
 import json
 import base64
 import math
-import re
 from datetime import datetime
 postsURLdeparture = 'https://domainname.com/wp-json/wp/v2/posts'
 tagsURLdeparture = 'https://domainname.com/wp-json/wp/v2/tags'
