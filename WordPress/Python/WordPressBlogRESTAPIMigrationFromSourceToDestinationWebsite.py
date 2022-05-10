@@ -3,6 +3,7 @@ import requests
 import csv
 import json
 import base64
+import math
 from datetime import datetime
 postsURLdeparture = 'https://domainname.com/wp-json/wp/v2/posts'
 tagsURLdeparture = 'https://domainname.com/wp-json/wp/v2/tags'
@@ -17,9 +18,12 @@ departingPostCheck = {
  'status'   : 'publish',
 }
 departingWordPressresponseCheck = requests.get(postsURLdeparture, headers=departingHeader, json=departingPostCheck)
-totalDepartingPages = departingWordPressresponseCheck.headers['X-WP-TotalPages']
-totalDepartingPagesIntegers = int(totalDepartingPages)
-for departingPageCount in range(1,totalDepartingPagesIntegers+1):
+#totalDepartingPages = departingWordPressresponseCheck.headers['X-WP-TotalPages']
+totalDepartingPosts = departingWordPressresponseCheck.headers['X-WP-Total']
+#totalDepartingPagesIntegers = int(totalDepartingPages)
+totalDepartingAdjustedPages = math.ceil(int(totalDepartingPosts)/5)
+#for departingPageCount in range(1,totalDepartingPagesIntegers+1):
+for departingPageCount in range(1,totalDepartingAdjustedPages+1):
     departingPageLoad = departingPageCount
     departingPostParams = {
     'per_page' : 5,
@@ -45,7 +49,7 @@ for departingPageCount in range(1,totalDepartingPagesIntegers+1):
             departingCatParser = json.loads(str(departingPostCatRequest.text))
             departingPostCatsByName.append(str(departingCatParser['name']))
         with open('wordPostLog.txt', 'a') as worddepartingPostLogger:
-            print(str(departingPageLoad)+' of '+str(totalDepartingPagesIntegers)+'\n\n',departingPostTitle+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n', file=worddepartingPostLogger)        
+            print(str(departingPageLoad)+' of '+str(totalDepartingAdjustedPages)+'\n\n',departingPostTitle+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n', file=worddepartingPostLogger)
         postsURLarrival = 'https://domainname.com/wp-json/wp/v2/posts'
         tagsURLarrival = 'https://domainname.com/wp-json/wp/v2/tags'
         catsURLarrival = 'https://domainname.com/wp-json/wp/v2/categories'
