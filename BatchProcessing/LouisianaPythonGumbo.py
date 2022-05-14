@@ -115,7 +115,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 allergicReaction= retrieveSeasonName(snack)
                 with open('allergies.csv', 'a') as allergy:
                     diagnosis = csv.writer(allergy)
-                    diagnosis.writerow([menuitemSelection, allergicReaction])
+                    diagnosis.writerow([menuitemSelection, allergicReaction, cajunGumboURL, creoleGumboURL])
                 return menuitemSelection[:-1]
         #Loop through scraped content and either return content or log as error
         def porcelainTureen(meal):
@@ -128,7 +128,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 allergicReaction= retrieveSeasonName(meal)
                 with open('allergies.csv', 'a') as allergy:
                     diagnosis = csv.writer(allergy)
-                    diagnosis.writerow([menuitemSelection, allergicReaction])
+                    diagnosis.writerow([menuitemSelection, allergicReaction, cajunGumboURL, creoleGumboURL]])
                 return emptyTureen
 
         #Draft Strings for Blog Post with embedded scraped content
