@@ -11,7 +11,7 @@ import time
 import re
 import inspect
 from datetime import datetime
-#Convert CSS & XPath Selectors to variables
+#Assign CSS & XPath Selectors to variables
 appetizerMenuitems = '//*[@id="frogLegs"]/p[2]/text()'
 flour = '#whiteFlour > div:nth-child(2)'
 subTotalPrice = '#Cost > h2'
@@ -34,7 +34,7 @@ crabLegs = '#FershAlaskaCrabs'
 whiteRice = '#BasmatiWhiteRice'
 advertisementPrice = '#Cost > dl > dd:nth-child(2)'
 flavoringredient = '#SecretFlavoring > dl > dd:nth-child(16)'
-#Loop through URLs to scrape from CSV Spreadsheet & Convert them to Variables
+#Loop through URLs to scrape from CSV Spreadsheet & assign them to Variables
 with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
     gumborecipeTitleAndSource = csv.reader(SecretGumboIngredientFileLoop)
     for row in gumborecipeTitleAndSource:
@@ -43,7 +43,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         cajunGumboIngredients = cajunGumboURL.content
         creoleGumboURL = requests.get(row[2])
         creoleGumboIngredients = creoleGumboURL.content
-        #Convert WebScraping Command to Variables
+        #Assign WebScraping Command to Variables
         cajunGumboStew = BeautifulSoup(cajunGumboIngredients, 'html.parser')
         cajunGumboEntreeflavor = cajunGumboStew.select(flavoringredient)
         PostFlavors= []
@@ -68,7 +68,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         for a in creoleGumboStew.findAll('a', href=True):
             a.extract()
 
-        #Convert isolated scraped content to variables for further processing 
+        #Assign isolated scraped content to variables for further processing 
         cajunGumboMenuTitle = html.fromstring(cajunGumboIngredients)
         appetizerMenuSelection = cajunGumboMenuTitle.xpath(appetizerMenuitems)
         cajunAppetizers = str(appetizerMenuSelection)[10:-4]
