@@ -5,6 +5,7 @@ import json
 import base64
 import math
 from datetime import datetime
+#WordPress REST API Authentification for Original Website
 postsURLdeparture = 'https://domainname.com/wp-json/wp/v2/posts'
 tagsURLdeparture = 'https://domainname.com/wp-json/wp/v2/tags'
 catsURLdeparture = 'https://domainname.com/wp-json/wp/v2/categories'
@@ -14,15 +15,12 @@ departingCredentials = departingUser + ':' + departingPassword
 departingToken = base64.b64encode(departingCredentials.encode())
 departingHeader = {'Authorization': 'Basic ' + departingToken.decode('utf-8'),
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36'}
-departingPostCheck = {
- 'status'   : 'publish',
-}
+#Get total Number of Posts & Pages for migration
+departingPostCheck = {'status'   : 'publish',}
 departingWordPressresponseCheck = requests.get(postsURLdeparture, headers=departingHeader, json=departingPostCheck)
-#totalDepartingPages = departingWordPressresponseCheck.headers['X-WP-TotalPages']
 totalDepartingPosts = departingWordPressresponseCheck.headers['X-WP-Total']
-#totalDepartingPagesIntegers = int(totalDepartingPages)
 totalDepartingAdjustedPages = math.ceil(int(totalDepartingPosts)/5)
-#for departingPageCount in range(1,totalDepartingPagesIntegers+1):
+#loop through original posts and assign content to variables
 for departingPageCount in range(1,totalDepartingAdjustedPages+1):
     departingPageLoad = departingPageCount
     departingPostParams = {
@@ -40,6 +38,7 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
         departingPostTags = str(departingPostParser[count]['tags'])[1:-1]#ID numbers
         departingPostTagsByName = []
         departingPostCatsByName = []
+        #Get tag and category names and ad to the preceding list arrays
         for tag in departingPostTags.split(', '):
             departingPostTagRequest = requests.get(tagsURLdeparture+'/'+tag, headers=departingHeader)
             departingTagParser = json.loads(str(departingPostTagRequest.text))
@@ -50,6 +49,8 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
             departingPostCatsByName.append(str(departingCatParser['name']))
         #with open('wordPostLog.txt', 'a') as worddepartingPostLogger:
         #    print(str(departingPageLoad)+' of '+str(totalDepartingAdjustedPages)+'\n\n',departingPostTitle.strip('\'')+'\n\n',str(departingPostCatsByName)+'\n\n',str(departingPostTagsByName)+'\n\n',file=worddepartingPostLogger)
+        
+        #WordPress REST API Authentification for New Website
         postsURLarrival = 'https://domainname.com/wp-json/wp/v2/posts'
         tagsURLarrival = 'https://domainname.com/wp-json/wp/v2/tags'
         catsURLarrival = 'https://domainname.com/wp-json/wp/v2/categories'
@@ -63,6 +64,7 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
         arrivingPostTags= departingPostTagsByName
         arrivingNewTagArray = []
         arrivingNewCatArray= []
+        #Post Category & Tag Names to WordPress #RESTful API, then add returned id number to array lists & log
         for cat in arrivingPostCats:
             arrivingJsonCatFormat= {'name': cat}
             wordPressRESTAPIarrivingPostNewCatRequest = requests.post(catsURLarrival, headers=arrivingHeader, json=arrivingJsonCatFormat)
@@ -89,6 +91,7 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
                 arrivingwPNewTagResponse.write(str(arrivingTagParser)+'\n\n')
         with open('arrivingTagParserLog.txt', 'a') as wPNewarrivingTagParserResponse:
             wPNewarrivingTagParserResponse.write(str(arrivingNewTagArray))
+        #add content formatted variables to JSON dictionary for WordPress Post Request
         arrivingPost = {
          'title'    : departingPostTitle.strip('\''),
          'status'   : 'draft',
@@ -100,6 +103,7 @@ for departingPageCount in range(1,totalDepartingAdjustedPages+1):
          'tags' : arrivingNewTagArray,
          'author' : '1'
         }
+        #post content to new wordpress website &  log
         arrivingWordPressresponse = requests.post(postsURLarrival, headers=arrivingHeader, json=arrivingPost)
         with open('arrivingWordPresResponseLog.txt', 'a') as arrivingwPResponse:
             arrivingwPResponse.write(str(arrivingWordPressresponse.text))
