@@ -11,7 +11,7 @@ import time
 import re
 import inspect
 from datetime import datetime
-
+#Convert CSS & XPath Selectors to variables
 appetizerMenuitems = '//*[@id="frogLegs"]/p[2]/text()'
 flour = '#whiteFlour > div:nth-child(2)'
 subTotalPrice = '#Cost > h2'
@@ -34,24 +34,28 @@ crabLegs = '#FershAlaskaCrabs'
 whiteRice = '#BasmatiWhiteRice'
 advertisementPrice = '#Cost > dl > dd:nth-child(2)'
 flavoringredient = '#SecretFlavoring > dl > dd:nth-child(16)'
-
+#Loop through URLs to scrape from CSV Spreadsheet & Convert them to Variables
 with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
     gumborecipeTitleAndSource = csv.reader(SecretGumboIngredientFileLoop)
     for row in gumborecipeTitleAndSource:
-        menuitemSelection = row[0]
+        menuitemSelection = row[0] #Convert Job Title from this column to variable
         cajunGumboURL = requests.get(row[1])
         cajunGumboIngredients = cajunGumboURL.content
         creoleGumboURL = requests.get(row[2])
         creoleGumboIngredients = creoleGumboURL.content
+        #Convert WebScraping Command to Variables
         cajunGumboStew = BeautifulSoup(cajunGumboIngredients, 'html.parser')
         cajunGumboEntreeflavor = cajunGumboStew.select(flavoringredient)
         PostFlavors= []
+        #Loop through Job Categories & add them to the preceding list array
         for flavor in cajunGumboEntreeflavor:
             boldFlavor= flavor.a.text
             PostFlavors.append(boldFlavor)
             if flavor.a.next_sibling.next_element.next_element.next_element.next_element.text:
                 mildFlavor= flavor.a.next_sibling.next_element.next_element.next_element.next_element.text
                 PostFlavors.append(mildFlavor)
+                
+        #Remove all links, buttons, & classes from scraped content
         for a in cajunGumboStew.findAll('a', href=True):
             a.extract()
         for b in cajunGumboStew.findAll('button'):
@@ -64,6 +68,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         for a in creoleGumboStew.findAll('a', href=True):
             a.extract()
 
+        #Convert isolated scraped content to variables for further processing 
         cajunGumboMenuTitle = html.fromstring(cajunGumboIngredients)
         appetizerMenuSelection = cajunGumboMenuTitle.xpath(appetizerMenuitems)
         cajunAppetizers = str(appetizerMenuSelection)[10:-4]
@@ -87,6 +92,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         cajunGumboEntreecrabLegs = cajunGumboStew.select(crabLegs)
         cajunGumboEntreewhiteRice = cajunGumboStew.select(whiteRice)
         cajunGumboEntreeadvertisementPrice = cajunGumboStew.select(advertisementPrice)
+        #remove ending paragraph tags & replace dd tags for paragraph tags for proper formatting
         def pSpiceRemover(targetText):
             clean = re.compile('</p>')
             return re.sub(clean, '', targetText)
@@ -97,6 +103,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 break
             dd.name = 'p'
             
+        #Identify variables with empty values for error logging
         def retrieveSeasonName(season):
             mildSeasoning = inspect.currentframe().f_back.f_back.f_locals.items()
             return [season_name for season_name, season_flavor in mildSeasoning if season_flavor is season]
@@ -110,7 +117,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                     diagnosis = csv.writer(allergy)
                     diagnosis.writerow([menuitemSelection, allergicReaction])
                 return menuitemSelection[:-1]
-        
+        #Loop through scraped content and either return content or log as error
         def porcelainTureen(meal):
             emptyTureen= ''
             if meal:
@@ -124,6 +131,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                     diagnosis.writerow([menuitemSelection, allergicReaction])
                 return emptyTureen
 
+        #Draft Strings for Blog Post with embedded scraped content
         AmericanGumboMenuTitle = f'''
         {menuitemSelection} for {porcelainTureen(cajunGumboEntreeadvertisementPrice)}
         '''
@@ -171,11 +179,13 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 {porcelainTureen(cajunGumboEntreewhiteRice)}
                 </div>
         '''
+        #Save content as HTML files for Back Up
         with open(menuitemSelection+'.html', 'w') as finalExport:
             finalExport.write(str(mainCourseMeal.replace('Save Table', '').replace(notAvailable, '')))
 
 
 
+        #Authentification data for WordPress RESTful API
         dinnerTable = 'https://domainname.com/wp-json/wp/v2/posts'
         spiceRack = 'https://domainname.com/wp-json/wp/v2/tags'
         tastePanel = 'https://domainname.com/wp-json/wp/v2/categories'
@@ -186,6 +196,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         signage = {'Authorization': 'Basic ' + token.decode('utf-8'),
                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36'}
 
+        #Create List Arrays for Job Categories & Titles, then Add Job Categories & Titles to Lists
         PostSpices= [(menuitemSelection)]
         PostSpices.extend(cajunAppetizers.split(', '))
         newSpiceArray = []
@@ -193,6 +204,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         for flavor in PostFlavors:
             flavorExtract= {'name': flavor,
                             'parent': 526}
+            #Post Job Category Names to WordPress #RESTful API, then add returned id number to lists & log
             customerOrderFlavorRequest = requests.post(tastePanel, headers=signage, json=flavorExtract)
             flavorParser = json.loads(str(customerOrderFlavorRequest.text))
             flavorParserStatusCode = json.loads(str(customerOrderFlavorRequest.status_code))
@@ -205,6 +217,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
         with open('flavorParserLog.txt', 'a') as wPNewFlavorParserResponse:
             wPNewFlavorParserResponse.write(str(newFlavorArray))
 
+        #Post Job Title Tag Names to WordPress #RESTful API, then add returned id number to lists & log
         for spice in PostSpices:
             Spicyingredients= {'name': spice}
             customerOrderSpiceRequest = requests.post(spiceRack, headers=signage, json=Spicyingredients)
@@ -218,6 +231,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
                 wPNewSpiceResponse.write(str(spiceParser)+'\n\n')
         with open('spiceParserLog.txt', 'a') as wPNewSpiceParserResponse:
             wPNewSpiceParserResponse.write(str(newSpiceArray))
+        #add content formatted variables to JSON dictionary for WordPress Post Request
         cajunDinner = {
          'title'    : AmericanGumboMenuTitle,
          'status'   : 'publish',
@@ -228,6 +242,7 @@ with open('secretIngredientFile.csv', 'r') as SecretGumboIngredientFileLoop:
          'tags' : newSpiceArray,
          'author' : '1'
         }
+        #post content to wordpress &  log
         customerOrder = requests.post(dinnerTable, headers=signage, json=cajunDinner)
         with open('dinnerReceiptLog.txt', 'a') as ReceiptLedger:
             ReceiptLedger.write(str(customerOrder.text))
