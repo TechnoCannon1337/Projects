@@ -1,5 +1,6 @@
 <body>
 <?php
+//Baye's Theorem is used to calculate probailities of events based on prior knowledge
 function BayesProbability($A, $B)
 {
     $FirstEvent = $A;
