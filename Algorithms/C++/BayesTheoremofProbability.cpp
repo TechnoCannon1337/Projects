@@ -1,5 +1,8 @@
 //Baye's Theorem is used to calculate probailities of events based on prior knowledge
 //add arguments -static-libgcc and -static-libstdc++ to command line when using MinGW EXE compiler for windows
+//Bash Command to create Favicon Resource Object x86_64-w64-mingw32-windres resources.rc myresources.o
+//Bash Command to compile as EXE with Favicon Resource Object
+//x86_64-w64-mingw32-g++ -o BayesTheoremofProbability.exe BayesTheoremofProbability.cpp myresources.o -static-libstdc++ -static-libgcc
 #include <iostream>
 #include <cmath>
 using namespace std;
