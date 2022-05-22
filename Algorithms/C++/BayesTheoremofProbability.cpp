@@ -1,5 +1,5 @@
 //Baye's Theorem is used to calculate probailities of events based on prior knowledge
-//add arguments -static-libgcc and -static-libstdc++ to command line when using MingW EXE compiler for windows
+//add arguments -static-libgcc and -static-libstdc++ to command line when using MinGW EXE compiler for windows
 #include <iostream>
 #include <cmath>
 using namespace std;
