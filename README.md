@@ -22,8 +22,12 @@ https://TechnoCannon.com/swag
 Amazon Affiliate:
 https://technocannon.com/learntoprogram
 
-Financial Support Link:
+# DONATION LINKS:
+Cash App
 https://TechnoCannon.com/cashapp
+
+Ethereum:
+https://technocannon.com/ethereum
 
 # PEER REVIEWED PUBLISHED WORKS:
 Official WordPress Plugin
