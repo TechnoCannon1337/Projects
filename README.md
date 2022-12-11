@@ -6,7 +6,7 @@
 
 ## This is a public repository for projects I've worked on and for projects I'm working on presently.
 
-## Techno Cannon, MPA
+## Techno Cannon
 
 
 # COMMERCIAL LINKS:
@@ -23,6 +23,9 @@ Amazon Affiliate:
 https://technocannon.com/learntoprogram
 
 # DONATION LINKS:
+Cash App:
+https://cash.app/$MisterTallyMan
+
 Ethereum:
 https://technocannon.com/ethereum
 
