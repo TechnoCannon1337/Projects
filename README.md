@@ -23,9 +23,6 @@ Amazon Affiliate:
 https://technocannon.com/learntoprogram
 
 # DONATION LINKS:
-Cash App
-https://TechnoCannon.com/cashapp
-
 Ethereum:
 https://technocannon.com/ethereum
 
@@ -37,14 +34,10 @@ https://wordpress.org/plugins/pyplugger-for-pyscript/
 YouTube Channel:
 https://technocannon.com/youtube
 
-Cyber Music:
-https://technocannon.com/music
 
 GitHub Link:
 http://TechnoCannon.com/github
 
-Twitter Link:
-https://technocannon.com/twitter
 
 Discord Server:
 https://technocannon.com/discord
