@@ -41,6 +41,11 @@ https://technocannon.com/youtube
 GitHub Link:
 http://TechnoCannon.com/github
 
-
 Discord Server:
 https://technocannon.com/discord
+
+Linkedin:
+https://www.linkedin.com/in/alextally/
+
+Instagram:
+https://www.linkedin.com/in/alextally/
