@@ -47,5 +47,8 @@ https://technocannon.com/discord
 Linkedin:
 https://www.linkedin.com/in/alextally/
 
+Twitter:
+https://twitter.com/MrAlexTallyMan
+
 Instagram:
 https://www.linkedin.com/in/alextally/
