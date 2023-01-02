@@ -13,8 +13,6 @@
 Official Website:
 HTTPS://TECHNOCANNON.COM
 
-Work for Hire:
-https://technocannon.com/freelance
 
 Cyber Swag:
 https://TechnoCannon.com/swag
