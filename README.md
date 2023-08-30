@@ -32,9 +32,6 @@ Official WordPress Plugin
 https://wordpress.org/plugins/pyplugger-for-pyscript/
 
 # SOCIAL MEDIA LINKS
-YouTube Channel:
-https://technocannon.com/youtube
-
 
 GitHub Link:
 http://TechnoCannon.com/github
@@ -45,8 +42,3 @@ https://technocannon.com/discord
 Linkedin:
 https://www.linkedin.com/in/alextally/
 
-Twitter:
-https://twitter.com/MrAlexTallyMan
-
-Instagram:
-https://www.linkedin.com/in/alextally/
