@@ -32,6 +32,3 @@ http://TechnoCannon.com/github
 Discord Server:
 https://technocannon.com/discord
 
-Linkedin:
-https://www.linkedin.com/in/alextally/
-
